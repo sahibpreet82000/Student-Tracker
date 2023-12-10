@@ -4,6 +4,7 @@ import { Modal, Button, Form } from "react-bootstrap";
 import "../components/Home.css"; // Import a separate CSS file for styling
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import ChartComponent from "./ChartComponent";
 
 const Home = () => {
   const [csvData, setCsvData] = useState(() => {
@@ -111,18 +112,60 @@ const Home = () => {
     }));
   };
 
+  const handleDownloadCSV = () => {
+    const csvContent = csvData;
+
+    const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+    const link = document.createElement("a");
+
+    if (navigator.msSaveBlob) {
+      // IE 10+
+      navigator.msSaveBlob(blob, "student_records.csv");
+    } else {
+      // Other browsers
+      const url = URL.createObjectURL(blob);
+      link.href = url;
+      link.download = "student_records.csv";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+    }
+  };
+
   return (
     <div className="home-container">
       <h1>Student Score Tracker</h1>
 
       <div className="csv-container">
         <h2>Import CSV File</h2>
-        <input type="file" onChange={handleFileChange} />
+        <input
+          className="upload-btn-wrapper btn"
+          type="file"
+          onChange={handleFileChange}
+        />
 
         {csvData && csvData.length > 0 && (
           <div>
             <h3>CSV Data</h3>
-            <table className="csv-table">
+            <div className="record">
+              {" "}
+              <Button
+                classname="download"
+                variant="success"
+                onClick={handleAdd}
+              >
+                Add Record
+              </Button>
+              <Button
+                className="download"
+                variant="success"
+                onClick={handleDownloadCSV}
+              >
+                Download CSV
+              </Button>
+            </div>
+            <table className="csv-table table-responsive">
               <thead>
                 <tr>
                   {Object.keys(csvData[0]).map((header) => (
@@ -132,9 +175,6 @@ const Home = () => {
                 </tr>
               </thead>
               <tbody>
-                <Button variant="success" onClick={handleAdd}>
-                  Add Record
-                </Button>
                 {currentRecords.map((row, index) => (
                   <tr key={index}>
                     {Object.keys(row).map((column) => (
@@ -160,6 +200,8 @@ const Home = () => {
                 )
               )}
             </div>
+
+            {/* <ChartComponent data={csvData} labelColumn="Name" />{" "} */}
           </div>
         )}
 

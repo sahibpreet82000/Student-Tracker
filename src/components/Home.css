@@ -111,5 +111,64 @@
 }
 button.btn.btn-success {
   background: none;
-  margin: 5px 0px;
+  margin: 0px 3px;
+}
+input[type="file"] {
+  border: 2px solid gray;
+  color: gray;
+  background-color: white;
+  padding: 7px 12px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+}
+.record {
+  display: flex;
+}
+.download {
+  background-color: transparent;
+}
+
+@media (max-width: 768px) {
+  .csv-table th,
+  .csv-table td {
+    padding: 8px 6px;
+    font-size: 14px;
+  }
+
+  .csv-table button {
+    padding: 4px 8px;
+    font-size: 12px;
+  }
+
+  .csv-container {
+    margin: 10px;
+  }
+
+  .pagination button {
+    padding: 3px 8px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 576px) {
+  .csv-table th,
+  .csv-table td {
+    padding: 8px 4px;
+    font-size: 12px;
+  }
+
+  .csv-table button {
+    padding: 3px 6px;
+    font-size: 10px;
+  }
+
+  .csv-container {
+    margin: 5px;
+  }
+
+  .pagination button {
+    padding: 2px 6px;
+    font-size: 10px;
+  }
 }
