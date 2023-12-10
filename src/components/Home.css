@@ -1,0 +1,115 @@
+/* Home.css */
+
+.home-container {
+  text-align: center;
+  margin: 20px;
+}
+
+.links-container {
+  margin: 20px;
+}
+
+.nav-link {
+  margin: 10px;
+  padding: 8px 16px;
+  text-decoration: none;
+  color: white;
+  background-color: #007bff;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.nav-link:hover {
+  background-color: #0056b3;
+}
+
+.csv-container {
+  margin: 20px;
+}
+
+.csv-list {
+  list-style: none;
+  padding: 0;
+}
+
+.csv-item {
+  margin: 8px 0;
+  padding: 8px;
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-family: monospace;
+}
+
+.csv-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.csv-table th,
+.csv-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.csv-table th {
+  background-color: #f2f2f2;
+}
+.pagination {
+  display: flex;
+  list-style: none;
+  margin: 10px 0;
+}
+
+.pagination button {
+  margin: 0 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  background-color: #f5f5f5;
+  border-radius: 3px;
+}
+
+.pagination button:hover {
+  background-color: #ddd;
+}
+.csv-table button {
+  margin-right: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  background-color: #f5f5f5;
+  border-radius: 3px;
+  font-size: 12px;
+}
+
+/* Edit Modal styling */
+.modal-body form {
+  margin-bottom: 20px;
+}
+
+.pagination {
+  display: flex;
+  list-style: none;
+  margin: 10px 0;
+}
+
+.pagination button {
+  margin: 0 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  background-color: #f5f5f5;
+  border-radius: 3px;
+}
+
+.pagination button:hover {
+  background-color: #ddd;
+}
+button.btn.btn-success {
+  background: none;
+  margin: 5px 0px;
+}
